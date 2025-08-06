@@ -1,0 +1,78 @@
+{
+  "info": {
+    "name": "AURA Panic API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Panic",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"location\": {\n    \"lat\": -33.9,\n    \"lng\": 18.4\n  },\n  \"metadata\": {\n    \"triggerSource\": \"mobile-app\"\n  }\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/panic",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "panic"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Panic by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/panic/:id",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "panic",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "replace-with-panic-id"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/health",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "health"
+          ]
+        }
+      }
+    }
+  ]
+}
