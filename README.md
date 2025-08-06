@@ -116,6 +116,17 @@ Fetches a panic record by ID. May return a placeholder if async processing is no
 
 ---
 
+## 📚 API Documentation
+
+Detailed API documentation is available in the following formats:
+
+- 📘 [Human-readable Markdown](./docs/api-docs.md)
+- 📄 [OpenAPI 3.0 Specification](./docs/openapi.yaml) – compatible with Swagger UI or Redoc
+
+These documents provide schema details, example requests/responses, and behaviour notes such as eventual consistency and error handling.
+
+---
+
 ## 🧠 Architecture Principles Demonstrated
 
 This lightweight implementation mirrors the proposed production architecture described in the accompanying system design document:
@@ -142,6 +153,7 @@ src/
 ├── utils/              # Logging
 ├── index.ts            # App entrypoint
 tests/                  # Unit tests
+docs/                   # System design, API docs, OpenAPI spec
 ```
 
 ---
@@ -161,6 +173,6 @@ This codebase was intentionally designed to simulate real-world infrastructure. 
 
 ## 🧾 Author Notes
 
-- This submission aligns with the requirements of the **Engineering @ AURA – API Assessment**.
+- This submission aligns with the requirements of the **Engineering @ AURA – API Assessment** (see `docs/`).
 - All architectural decisions mirror those described in the **High-Level System Design Document** (see `docs/`).
 - The solution reflects AURA’s technical values: resilience, scalability, and impact-driven engineering.

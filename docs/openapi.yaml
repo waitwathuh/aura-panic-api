@@ -1,0 +1,109 @@
+openapi: 3.0.3
+info:
+  title: AURA Panic API
+  description: API for triggering and retrieving emergency panic events.
+  version: 1.0.0
+servers:
+  - url: /api
+paths:
+  /panic:
+    post:
+      summary: Trigger a new panic event
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - userId
+                - location
+                - timestamp
+              properties:
+                userId:
+                  type: string
+                  description: Unique identifier of the user
+                location:
+                  type: object
+                  required:
+                    - lat
+                    - lng
+                  properties:
+                    lat:
+                      type: number
+                      format: float
+                      description: Latitude
+                    lng:
+                      type: number
+                      format: float
+                      description: Longitude
+                timestamp:
+                  type: string
+                  format: date-time
+                  description: ISO8601 formatted timestamp
+      responses:
+        '202':
+          description: Panic accepted for processing
+        '400':
+          description: Invalid request payload
+        '500':
+          description: Internal server error
+
+  /panic/{id}:
+    get:
+      summary: Retrieve a panic event by ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: Unique ID of the panic
+      responses:
+        '200':
+          description: Panic retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  panicId:
+                    type: string
+                  userId:
+                    type: string
+                  location:
+                    type: object
+                    properties:
+                      lat:
+                        type: number
+                        format: float
+                      lng:
+                        type: number
+                        format: float
+                  status:
+                    type: string
+                    enum: [processing, active, resolved]
+                  createdAt:
+                    type: string
+                    format: date-time
+                  updatedAt:
+                    type: string
+                    format: date-time
+        '404':
+          description: Panic not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        '500':
+          description: Unexpected server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
