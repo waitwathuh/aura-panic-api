@@ -1,8 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
 import { Panic } from '../models/panic';
-import { panicDb } from '../store/db';
-import { cache } from '../store/cache';
-import { queue } from './queueService';
+import { panicDb } from '../store/db.factory';
+import { cache } from '../store/cache.factory';
+import { queue } from './queue.factory';
 import { logger } from '../utils/logger';
 
 const CACHE_TTL = 60_000; // 60 seconds

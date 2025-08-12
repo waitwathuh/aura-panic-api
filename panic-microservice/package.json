@@ -7,27 +7,42 @@
     "start": "node dist/index.js",
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint . --ext .ts",
+    "migrate:up": "node-pg-migrate up -r",
+    "migrate:down": "node-pg-migrate down -r",
+    "migrate:create": "node-pg-migrate create"
   },
   "keywords": [],
   "author": "Wikus van der Westhuizen",
   "license": "MIT",
   "dependencies": {
+    "@aws-sdk/client-sqs": "^3.637.0",
+    "aws-sdk": "^2.1551.0",
     "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "pino": "^8.17.0",
-    "uuid": "^9.0.0"
+    "express": "^4.19.2",
+    "ioredis": "^5.3.2",
+    "node-pg-migrate": "^8.0.3",
+    "pg": "^8.16.3",
+    "pino": "^8.19.0",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
-    "@types/jest": "^29.5.5",
-    "@types/node": "^20.6.0",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.19.10",
     "@types/uuid": "^10.0.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "jest": "^29.7.0",
+    "node-pg-migrate": "^8.0.3",
     "pino-pretty": "^10.3.0",
+    "prettier": "^3.2.5",
     "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.5"
   },
   "jest": {
     "preset": "ts-jest",

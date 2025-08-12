@@ -1,7 +1,7 @@
 import { Panic } from '../models/panic';
-import { panicDb } from '../store/db';
-import { cache } from '../store/cache';
-import { queue } from './queueService';
+import { panicDb } from '../store/db.factory';
+import { cache } from '../store/cache.factory';
+import { queue } from './queue.factory';
 import { logger } from '../utils/logger';
 
 const PROCESSING_DELAY = 2000; // Simulated async delay

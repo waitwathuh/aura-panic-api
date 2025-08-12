@@ -1,0 +1,3 @@
+databaseUrl: ${DATABASE_URL}
+dir: migrations
+migrations-table: schema_migrations
